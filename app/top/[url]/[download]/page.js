@@ -59,6 +59,10 @@ export async function generateMetadata({ params }) {
 const Page = async ({ params }) => {
   let post = await getTops("top", params.url);
 
-  return <Download post={post} />;
+  return (
+    <Suspense fallback={<Loadingui />}>
+      <Download post={post} />
+    </Suspense>
+  );
 };
 export default Page;

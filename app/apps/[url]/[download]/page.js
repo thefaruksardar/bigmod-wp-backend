@@ -64,9 +64,10 @@ export async function generateMetadata({ params }) {
 const Page = async ({ params }) => {
   let post = await getPost(params.url);
 
-  return;
-  <Suspense fallback={<Loadingui />}>
-    <Download post={post} />
-  </Suspense>;
+  return (
+    <Suspense fallback={<Loadingui />}>
+      <Download post={post} />
+    </Suspense>
+  );
 };
 export default Page;
